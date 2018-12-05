@@ -1,6 +1,7 @@
 <?php
-
+ 
 use Illuminate\Http\Request;
+use App\Game;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('games', 'GamesController@index');
+Route::get('games/{game}', 'GamesController@show');
+Route::post('games', 'GamesController@store');
+Route::put('games/{game}', 'GamesController@update');
+Route::delete('games/{game}', 'GamesController@delete');
