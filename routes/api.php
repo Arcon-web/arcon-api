@@ -18,8 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('games', 'GamesController@index');
-Route::get('games/{game}', 'GamesController@show');
-Route::post('games', 'GamesController@store');
-Route::put('games/{game}', 'GamesController@update');
-Route::delete('games/{game}', 'GamesController@delete');
+Route::middleware('auth:api')->get('games', 'GamesController@index');
+Route::middleware('auth:api')->get('games/{game}', 'GamesController@show');
+Route::middleware('auth:api')->post('games', 'GamesController@store');
+Route::middleware('auth:api')->put('games/{game}', 'GamesController@update');
+Route::middleware('auth:api')->delete('games/{game}', 'GamesController@delete');
