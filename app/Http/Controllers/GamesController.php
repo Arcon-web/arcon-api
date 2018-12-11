@@ -36,7 +36,7 @@ class GamesController extends Controller
     {
         $game = Game::create($request->all());
 
-        return response()->json($article, 201);
+        return response()->json($game, 201);
     }
 
     /**
