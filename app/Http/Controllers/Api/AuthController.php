@@ -16,12 +16,14 @@ class AuthController extends Controller
             'email'=>'required',
             'name'=>'required',
             'password'=>'required',
+            'Console_id'=>'required',
 
         ]);
 
         $user=User::firstOrNew(['email'=>$request->email]);
         $user->name=$request->name;
         $user->email=$request->email;
+        $user->Console_id=$request->Console_id;
         $user->password=bcrypt($request->password);
         $user->save();
 
@@ -46,6 +48,7 @@ class AuthController extends Controller
         $request->validate([
             'email'=>'required',
             'password'=>'required',
+            'console_id'=>'required',
         ]);
 
         $user = User::where('email', $request->email)->first();
