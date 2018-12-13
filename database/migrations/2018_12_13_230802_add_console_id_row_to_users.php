@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateConsoleTable extends Migration
+class AddConsoleIdRowToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateConsoleTable extends Migration
      */
     public function up()
     {
-        Schema::create('consoles', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('console_id');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('console_id')->nullable();;
         });
     }
 
@@ -27,6 +25,8 @@ class CreateConsoleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('consoles');
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('console_id');
+        });
     }
 }

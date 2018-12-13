@@ -17,14 +17,14 @@ class AuthController extends Controller
             'email'=>'required',
             'name'=>'required',
             'password'=>'required',
-            'console_id'=>['required', new ValidConsole]
+            'console_id'=>['required', new ValidConsole],
 
         ]);
 
         $user=User::firstOrNew(['email'=>$request->email]);
         $user->name=$request->name;
         $user->email=$request->email;
-        $user->Console_id=$request->console_id;
+        $user->console_id=$request->console_id;
         $user->password=bcrypt($request->password);
         $user->save();
 
@@ -34,7 +34,7 @@ class AuthController extends Controller
             'form_params' => [
                 'grant_type' => 'password',
                 'client_id' => '2',
-                'client_secret' => 'inv7gckSHQjVD5SayGWkvszURFmb3umIIjDQ4hhn',
+                'client_secret' => '1wO2qrPdoBMS7aQQ48mupDE1rr5BQs0RN8C2nDrX',
                 'username' => $request->email,
                 'password' => $request->password,
                 'scope' => '',

@@ -3,7 +3,7 @@
 namespace App\Rules;
 use App\Console;
 use Illuminate\Contracts\Validation\Rule;
-
+use Illuminate\Support\Facades\Input;
 class ValidConsole implements Rule
 {
     /**
@@ -25,11 +25,13 @@ class ValidConsole implements Rule
      */
     public function passes($attribute, $value)
     {
-        $correct = Console::where($value,'=', Input::get($value))->first();
-        if($corret === null){
-            return false;
-        }
-        return true;
+       if( Console::where('console_id','=', $value)->count() > 0){
+            return true;    
+       }
+        
+        return false;
+        
+        
     }
 
     /**
