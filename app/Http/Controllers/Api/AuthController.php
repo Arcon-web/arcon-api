@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Hash;
+use App\Rules\ValidConsole;
 
 class AuthController extends Controller
 {
@@ -16,14 +17,14 @@ class AuthController extends Controller
             'email'=>'required',
             'name'=>'required',
             'password'=>'required',
-            'Console_id'=>'required',
+            'console_id'=>['required', new ValidConsole]
 
         ]);
 
         $user=User::firstOrNew(['email'=>$request->email]);
         $user->name=$request->name;
         $user->email=$request->email;
-        $user->Console_id=$request->Console_id;
+        $user->Console_id=$request->console_id;
         $user->password=bcrypt($request->password);
         $user->save();
 
