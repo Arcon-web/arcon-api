@@ -17,14 +17,14 @@ class AuthController extends Controller
             'email'=>'required',
             'name'=>'required',
             'password'=>'required',
-            //'console_id'=>['required', new ValidConsole],
+            'console_id'=>['required', new ValidConsole],
 
         ]);
 
         $user=User::firstOrNew(['email'=>$request->email]);
         $user->name=$request->name;
         $user->email=$request->email;
-        //$user->console_id=$request->console_id;
+        $user->console_id=$request->console_id;
         $user->password=bcrypt($request->password);
         $user->save();
 
