@@ -26,7 +26,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 
-
+  Route::get('profile', 'ProfileController@getIndex');
 
 Route::group(['middleware' => ['auth:api', 'cors']], function() {
     // uses 'auth' middleware plus all middleware from $middlewareGroups['web']
@@ -35,5 +35,5 @@ Route::group(['middleware' => ['auth:api', 'cors']], function() {
     Route::post('games', 'GamesController@store'); 
     Route::put('games/{game}', 'GamesController@update'); 
     Route::delete('games/{game}', 'GamesController@delete'); 
-
+   
   });
