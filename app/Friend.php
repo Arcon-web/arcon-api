@@ -8,5 +8,5 @@ class Friend extends Model
 {
     use HasApiTokens, Notifiable;
 
-    protected $fillable = ['user*id', 'friend_id'];
+    protected $fillable = ['user_id', 'friend_id'];
 }
