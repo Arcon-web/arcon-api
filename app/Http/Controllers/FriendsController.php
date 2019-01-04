@@ -38,14 +38,7 @@ class FriendsController extends Controller
 
             }
             
-            
-
-            
-            
-
-
-            
-             return Response::json(array('friend'=>$friendos,'avatar'=>$avatar));
+            return Response::json(array('friend'=>$friendos,'avatar'=>$avatar));
             //    $friends = Friend::where('user_id',$user_id)->get();
                
             //    return response()->json($friends->users(), 200);
