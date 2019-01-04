@@ -11,20 +11,25 @@ class GamesTableSeeder extends Seeder
      */
     public function run()
     {
-        // Let's truncate our existing records to start from scratch.
-        Game::truncate();
+        
+        DB::table('games')->insert([
+            'title' => 'Pong',
+            'description' => 'This is a pong game.',
+            'game_image' => 'http://arcon.mats.vingerhoets.mtantwerp.eu/storage/images/image.jpg',
+            'game_link' => 'https://arcon-pong.herokuapp.com',
+        ]);
+        DB::table('games')->insert([
+            'title' => 'Tetris',
+            'description' => 'This is a tetris game.',
+            'game_image' => 'http://arcon.mats.vingerhoets.mtantwerp.eu/storage/images/tetris.PNG',
+            'game_link' => 'http://google.com',
+        ]);
+        DB::table('games')->insert([
+            'title' => 'Pong',
+            'description' => 'This is a pong game.',
+            'game_image' => 'http://arcon.mats.vingerhoets.mtantwerp.eu/storage/images/bomberman.PNG',
+            'game_link' => 'http://google.com',
+        ]);
 
-        $faker = \Faker\Factory::create();
-
-        // And now, let's create a few articles in our database:
-        for ($i = 0; $i < 50; $i++) {
-            Game::create([
-                'title' => $faker->sentence,
-                'game_link' => $faker->url,
-                'description' => $faker->paragraph,
-                'game_image' => $faker->url,
-
-            ]);
-        }
     }
 }

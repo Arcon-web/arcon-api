@@ -35,5 +35,7 @@ Route::group(['middleware' => ['auth:api', 'cors']], function() {
     Route::post('games', 'GamesController@store'); 
     Route::put('games/{game}', 'GamesController@update'); 
     Route::delete('games/{game}', 'GamesController@delete'); 
+    //Route::get('friends/{user_id}', 'FriendsController@showFriends'); 
+
    
   });

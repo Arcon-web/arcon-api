@@ -39,17 +39,9 @@ class User extends Authenticatable
 
     public function friends()
 	{
-		return $this->belongsToMany('App\Friend');
+		return $this->hasMany('App\Friend');
 	}
 
-	//  public function addFriend(User $user)
-	// {
-	// 	$this->friends()->attach($user->id);
-	// }
 
-	// public function removeFriend(User $user)
-	// {
-	// 	$this->friends()->detach($user->id);
-	// } 
     
 }
