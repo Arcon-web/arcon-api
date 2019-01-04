@@ -31,5 +31,7 @@ class GamesTableSeeder extends Seeder
             'game_link' => 'http://google.com',
         ]);
 
+            
+        
     }
 }
