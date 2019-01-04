@@ -18,4 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('friends/{user_id}', 'FriendsController@showFriends'); 
+    Route::get('friendsdummies/{user_id}', 'FriendsController@showFriends'); 
+    Route::get('friends/{user_id}', 'FriendsController@showFriends'); 
+

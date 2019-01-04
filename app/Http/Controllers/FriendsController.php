@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Friend;
 use App\User;
-
+use Response;
 
 class FriendsController extends Controller
 {
@@ -34,16 +34,18 @@ class FriendsController extends Controller
             foreach($friends as $friend){
 
                 $friendos[] = User::find($friend->friend_id)->name;
+                $avatar[] = User::find($friend->friend_id)->avatar;
 
             }
-
+            
             
 
-            $friend1consoleId = $friend->console_id;
+            
             
 
 
-            return response()->json($friendos, 200);
+            
+             return Response::json(array('friend'=>$friendos,'avatar'=>$avatar));
             //    $friends = Friend::where('user_id',$user_id)->get();
                
             //    return response()->json($friends->users(), 200);
