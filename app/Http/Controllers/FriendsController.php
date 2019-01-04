@@ -39,7 +39,7 @@ class FriendsController extends Controller
 
             
 
-            $friend1consoleId = $friend->console_id;
+            
             
 
 
